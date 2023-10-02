@@ -1,0 +1,23 @@
+<mat-accordion multi="true">
+    <mat-expansion-panel *ngFor="let d of tache">
+        <mat-expansion-panel-header>
+            {{d.nom}}
+        </mat-expansion-panel-header>
+    
+        <p>
+            {{d.description}}</p>
+        <mat-action-row>
+            <button mat-fab extended color="primary"  (click)="updateProject(d.id)">
+                <mat-icon>edit</mat-icon>
+                Modifier
+            </button>
+            <button mat-fab extended color="warn" (click)="deleteProject(d.id)">
+                <mat-icon>delete</mat-icon>
+                Supprimer
+            </button>
+
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+
+

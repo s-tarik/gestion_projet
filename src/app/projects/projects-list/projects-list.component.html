@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">Liste des projets</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>titre de projet</th>
+                        <th>Description de projet</th>
+                        <th>Date début</th>
+                        <th>Date fin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of project">
+                        <td>{{data.nom}}</td>
+                        <td>{{data.description}}</td>
+                        <td>{{data.dateDebut}}</td>
+                        <td>{{data.dateFin}}</td>
+                        <td>
+                            <button (click)="deleteProject(data.id)" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+
+                        <td>
+                            <button (click)="updateProject(data.id)" class="btn btn-primary">
+                                <i class="bi bi-pen"></i>
+                            </button>
+                        </td>
+
+                        <td>
+                            <button (click)="AfficherProjet(data.id)" class="btn btn-outline-secondary">
+                                <i class="bi bi-box-arrow-up-right"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

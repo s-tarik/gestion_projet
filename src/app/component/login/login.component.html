@@ -1,0 +1,55 @@
+<div class="wrapper">
+	<div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+	  <div class="container">
+		<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+		  <div class="col mx-auto">
+			<div class="card mb-0">
+			  <div class="card-body">
+				<div class="p-4">
+				  <div class="mb-3 text-center">
+					<img src="assets/images/logo-icon.png" width="150" alt="" />
+				  </div>
+				  <div class="text-center mb-4">
+					<h5 class="">Application de gestion des projet</h5>
+					<p class="mb-0">Veuillez vous connecter à votre compte</p>
+				  </div>
+				  <div class="form-body">
+					<div *ngIf="errorMessage" class="alert alert-danger">
+					  {{errorMessage}}
+					</div>
+					<form class="row g-3" [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
+					  <div class="col-12">
+						<label for="inputEmailAddress" class="form-label">Adresse Email</label>
+						<input formControlName="email" name="email" type="email" class="form-control" id="inputEmailAddress" placeholder="tarik@example.com">
+						<div *ngIf="userFormGroup.get('email')?.hasError('required') && userFormGroup.get('email')?.touched" class="text-danger mt-1">Adresse email obligatoire</div>
+						<div *ngIf="userFormGroup.get('email')?.hasError('email') && userFormGroup.get('email')?.touched" class="text-danger mt-1">Adresse email invalide</div>
+  
+					  </div>
+					  <div class="col-12">
+						<label for="inputChoosePassword" class="form-label">Mot de passe</label>
+						<div class="input-group" id="show_hide_password">
+						  <input formControlName="password" name="password" type="password" class="form-control border-end-0" id="inputChoosePassword" placeholder="Enterez le mot de passe"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+						</div>
+						<div *ngIf="userFormGroup.get('password')?.hasError('required') && userFormGroup.get('password')?.touched" class="text-danger mt-1">Mot de passe obligatoire</div>
+  
+					  </div>
+  
+  
+					  <div class="col-12">
+						<div class="d-grid">
+						  <button type="submit" class="btn btn-primary" [disabled]="!userFormGroup.valid">Connexion</button>
+						</div>
+					  </div>
+					</form>
+				  </div>
+  
+  
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!--end row-->
+	  </div>
+	</div>
+  </div>

@@ -1,0 +1,24 @@
+<button class="add" mat-fab extended color="success" (click)="onClickForm()">
+    <mat-icon>add</mat-icon>
+    Ajouter une tâche
+</button>
+<br/>
+
+<mat-card   *ngIf="showForm">
+<form #postForm="ngForm">
+    <mat-form-field>
+        <mat-label>Insérez la tâche ici</mat-label>
+        <input name="Nom" type="text" matInput [(ngModel)]="tache.nom">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description de tche</mat-label>
+        <textarea name="Description" rows="10" matInput [(ngModel)]="tache.description">
+        </textarea>
+    </mat-form-field>
+    <button mat-fab extended color="accent" (click)="createTache()">
+        <mat-icon>save</mat-icon>
+        Sauvegarder
+    </button>
+</form>
+</mat-card>
+<app-list-tache></app-list-tache>
