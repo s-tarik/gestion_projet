@@ -1,0 +1,23 @@
+.text {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 3em;
+    padding-top: 0;
+    font-weight: 900;
+    margin-top: 10px;
+}
+.btn {
+    background-color: #0074D9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}

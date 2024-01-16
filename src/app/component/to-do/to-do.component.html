@@ -1,0 +1,42 @@
+<div class="page-content">
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="breadcrumb-title pe-2">Application</div>
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item">
+                        <a>
+                            <i class="bx bx-home-alt"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Todi List
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        </div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="mb-0">To Do List</h4>
+        <hr/>
+        <div class="row gy-3">
+            <div class="col-md-10">
+                <input [(ngModel)] = "newItem" (keyup.enter)="addItem()" class="form-control" placeholder="ajouter un nouveau ToDo">
+            </div>
+            <div class="col-md-2 text-end d-grid">
+                <button type="button" (click)="addItem()" class="btn btn-primary">Ajouter todo</button>    
+            </div>
+            <div>
+            <ul>
+                <li *ngFor="let item of items">
+                    {{item}}
+                    <button (click)="removeItem(item)" class="row justify-content-end mt-3 btn btn-danger">
+                        <i class="fas fa-solid fa-trash"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>

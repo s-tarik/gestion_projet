@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 import { navbarData } from './nav-data';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 interface SideNavToggle{
   screenWidth: number;
@@ -41,32 +42,21 @@ interface SideNavToggle{
 })
 export class SidenavComponent implements OnInit {
 
-@Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
- collapsed = false;
- screenWidth = 0;
- navData = navbarData;
+  authUser: any
 
- @HostListener('window:resize', ['$event'])
- onResize(event: any) {
-  this.screenWidth = window.innerWidth;
-  if(this.screenWidth >= 768) {
-    this.collapsed = false;
-    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
-  }
- }
-
- constructor( public router: Router){}
+ constructor( private authService: AuthService, private router : Router){}
  ngOnInit(): void {
-     this.screenWidth = window.innerWidth;
+  this.authUser = localStorage.getItem("authUser")
+  
  }
 
- toggleCollapse(): void{
-  this.collapsed = !this.collapsed;
-  this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+ navigateToProjects() {
+  this.router.navigate(['projects']);
  }
 
- closeSidenav(): void {
-  this.collapsed = false
-  this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
- }
+ logOut(): void {
+  this.authService.removeToken();
+  this.router.navigateByUrl("/login");
+}
+
 }

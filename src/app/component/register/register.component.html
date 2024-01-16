@@ -1,0 +1,97 @@
+	<!--wrapper-->
+	<div class="wrapper">
+		<div class="d-flex align-items-center justify-content-center my-5">
+			<div class="container-fluid">
+				<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+					<div class="col mx-auto">
+						<div class="card mb-0">
+							<div class="card-body">
+								<div class="p-4">
+									<div class="mb-3 text-center">
+										<img src="assets/images/logo-icon.png" width="150" alt="" />
+									</div>
+									<div class="text-center mb-4">
+										<span class="alert alert-success" *ngIf="mssg">
+											{{ mssg }}
+
+										</span>
+										<h5 class="">Intelcom Admin</h5>
+										<p class="mb-0">Veuillez remplir les détails ci-dessous pour créer votre compte</p>
+									</div>
+									<div class="form-body">
+										<form class="row g-3" [formGroup]="userFormGroup" (ngSubmit)="register()">
+                                            <div class="col-12">
+                                                <label for="inputEmailAddress" class="form-label">prènom</label>
+                                                <!-- <input formControlName="firstname" name="email" type="email" class="form-control" id="inputEmailAddress" placeholder="Prènom"> -->
+												<input formControlName="firstname" class="form-control" type="text" id="firstname" name="firstname" placeholder="Prènom" required>
+                                                <div *ngIf="userFormGroup.get('firstname')?.hasError('required') && userFormGroup.get('firstname')?.touched" class="text-danger mt-1">champs obligatoire</div>
+                                                <div *ngIf="userFormGroup.get('firstname')?.hasError('firstname') && userFormGroup.get('firstname')?.touched" class="text-danger mt-1">prènom invalide</div>
+                          
+                                              </div>
+
+                                              <div class="col-12">
+                                                <label for="inputEmailAddress" class="form-label">Nom</label>
+                                                <!-- <input formControlName="lastname" name="email" type="email" class="form-control" id="inputEmailAddress" placeholder="Nom"> -->
+												<input formControlName="lastname" class="form-control" type="text" id="lastname" name="lastname" placeholder="Nom" required>
+                                                <div *ngIf="userFormGroup.get('lastname')?.hasError('required') && userFormGroup.get('lastname')?.touched" class="text-danger mt-1">champs obligatoire</div>
+                                                <div *ngIf="userFormGroup.get('lastname')?.hasError('lastname') && userFormGroup.get('lastname')?.touched" class="text-danger mt-1">nom invalide</div>
+                          
+                                              </div>
+
+                                            <div class="col-12">
+                                                <label for="inputEmailAddress" class="form-label">Email</label>
+                                                <!-- <input formControlName="email" name="email" type="email" class="form-control" id="inputEmailAddress" placeholder="tarik@example.com"> -->
+												<input formControlName="email" class="form-control" type="email" id="email" name="email" placeholder="Email" required>
+                                                <div *ngIf="userFormGroup.get('email')?.hasError('required') && userFormGroup.get('email')?.touched" class="text-danger mt-1">champs obligatoire</div>
+                                                <div *ngIf="userFormGroup.get('email')?.hasError('email') && userFormGroup.get('email')?.touched" class="text-danger mt-1">email invalide</div>
+                          
+                                              </div>
+
+
+                                              <div class="col-12">
+                                                <label for="inputChoosePassword" class="form-label">Mot de passe</label>
+                                                <div class="input-group" id="show_hide_password">
+                                                  <!-- <input formControlName="password" name="password" type="password" class="form-control border-end-0" id="inputChoosePassword" placeholder="Enterez le mot de passe">  -->
+												  <input formControlName="password" class="form-control border-end-0" type="password" id="password" name="password" placeholder="Mot de passe" required>  <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                </div>
+                                                <div *ngIf="userFormGroup.get('password')?.hasError('required') && userFormGroup.get('password')?.touched" class="text-danger mt-1">Mot de passe obligatoire</div>
+                          
+                                              </div>
+                          
+											<div class="col-12">
+												<div class="form-check form-switch">
+													<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+													<label class="form-check-label" for="flexSwitchCheckChecked">J'ai lu et j'accepte les conditions générales</label>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="d-grid">
+													<button type="submit" class="btn btn-primary">S'inscrire</button>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="text-center ">
+													<p class="mb-0">Vous avez déjà un compte ? <a routerLink="/login">S'authentifier ici</a></p>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div class="login-separater text-center mb-5"> <span>OU S'AUTHENTIFIER PAR COURRIEL</span>
+										<hr/>
+									</div>
+									<div class="list-inline contacts-social text-center">
+										<a href="javascript:;" class="list-inline-item bg-facebook text-white border-0 rounded-3"><i class="bx bxl-facebook"></i></a>
+										<a href="javascript:;" class="list-inline-item bg-twitter text-white border-0 rounded-3"><i class="bx bxl-twitter"></i></a>
+										<a href="javascript:;" class="list-inline-item bg-google text-white border-0 rounded-3"><i class="bx bxl-google"></i></a>
+										<a href="javascript:;" class="list-inline-item bg-linkedin text-white border-0 rounded-3"><i class="bx bxl-linkedin"></i></a>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				 </div>
+				<!--end row-->
+			</div>
+		</div>
+	</div>

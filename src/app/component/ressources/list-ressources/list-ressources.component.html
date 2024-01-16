@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">Liste des ressources pour le projet: {{projectId}}</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom de ressource</th>
+                        <th>Type de ressource</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let r of ressource">
+                    <tr>
+                        <td>{{r.nom}}</td>
+                        <td>{{r.type}}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleteRessource(r.id)">
+                                <i class="fas fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+
+                        <td>
+                            <button class="btn btn-primary" (click)="editRessource(r.id)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

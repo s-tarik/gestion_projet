@@ -33,6 +33,18 @@
 						<div *ngIf="userFormGroup.get('password')?.hasError('required') && userFormGroup.get('password')?.touched" class="text-danger mt-1">Mot de passe obligatoire</div>
   
 					  </div>
+
+					  <div class="col-12">
+					  <div class="text-center">	
+						<a routerLink="/forgotPassword">Mot de passe oublié ?</a>
+					   </div>
+					  </div>
+
+					  <div class="col-12">
+						<div class="text-center ">
+							<p class="mb-0">Vous n'avez pas de compte ? <a routerLink="/register">S'enregistrer ici</a></p>
+						</div>
+					</div>
   
   
 					  <div class="col-12">
@@ -40,6 +52,7 @@
 						  <button type="submit" class="btn btn-primary" [disabled]="!userFormGroup.valid">Connexion</button>
 						</div>
 					  </div>
+					
 					</form>
 				  </div>
   

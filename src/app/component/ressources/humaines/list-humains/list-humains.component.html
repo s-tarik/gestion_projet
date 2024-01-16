@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">Liste des ressources humaines</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom Complet</th>
+                        <th>fonctionnalité</th>
+                        <th>Disponibilité</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let h of employee">
+                    <tr>
+                       <td>{{h.nom}}</td>
+                       <td>{{h.role}}</td>
+                       <td>
+                        <span class="badge" [ngClass]="{
+                          ' text-bg-success': h.disponibilite=== 'Disponible',
+                          ' text-bg-danger': h.disponibilite === 'Indisponible'
+                        }">{{h.disponibilite}}</span>
+                      </td>
+                       <td>
+                           <button class="btn btn-danger" (click)="onDelete(h.id)">
+                               <i class="fas fa-solid fa-trash"></i>
+                           </button>
+                       </td>
+                       <td>
+                           <button class="btn btn-primary" (click)="editHumain(h)">
+                               <i class="fas fa-edit"></i>
+                           </button>
+                       </td>
+                   </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,158 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "projects": [
+    {
+      "nom": "tarik's project",
+      "description": "un projet necessaire",
+      "dateDebut": "2023-11-08",
+      "dateFin": "2023-11-20",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nom": "Application Gestion de stock 12 ",
+      "description": "une application qui gère le stock des entreprises  ",
+      "dateDebut": "2023-12-12",
+      "dateFin": "2024-01-10"
+    }
+  ],
+  "taches": [
+    {
+      "id": 1,
+      "nom": "Partie BackEnd 10",
+      "description": "la partie qui génere les API 10",
+      "statut": "terminer",
+      "responsable": "SuperAdmin ",
+      "dateDebut": "2023-12-08",
+      "dateFin": "2024-01-10"
+    },
+    {
+      "id": 2,
+      "nom": "Ui/Ux design",
+      "description": "template des interfaces",
+      "statut": "En cours",
+      "dateDebut": "2023-02-28",
+      "dateFin": "2024-05-15",
+      "responsable": "Jamila Otmane"
+    },
+    {
+      "id": 3,
+      "nom": "la partie frontEnd",
+      "description": "générer les interfaces",
+      "statut": "En attente",
+      "dateDebut": "2023-05-16",
+      "dateFin": "2023-07-20",
+      "responsable": "Jamila Otmane"
+    },
+    {
+      "id": 4,
+      "nom": "la partie frontEnd",
+      "description": "générer les interfaces",
+      "statut": "Annuler",
+      "dateDebut": "2023-05-16",
+      "dateFin": "2023-07-20",
+      "responsable": "Jamila Otmane"
+    }
+  ],
+  "ressources": [
+    {
+      "nom": "",
+      "role": "data enginner",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nom": "SuperAdmin 1",
+      "role": ""
+    },
+    {
+      "id": 3,
+      "nom": "SuperAdmin1",
+      "type": "Ressource humaine"
+    }
+  ],
+  "Humaines": [
+    {
+      "nom": "",
+      "role": "Developpeur JAVA",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nom": "SuperAdmin",
+      "role": "Full Stack Developer",
+      "disponibilite": "Disponible"
+    },
+    {
+      "id": 3,
+      "nom": "Jamila Otmane",
+      "role": "Graphic Designer",
+      "disponibilite": "Disponible"
+    },
+    {
+      "id": 4,
+      "nom": "Mohammed Sabrei",
+      "role": "Android Developer",
+      "disponibilite": "Disponible"
+    },
+    {
+      "id": 5,
+      "nom": "Yassin Mansouri",
+      "role": "analyste",
+      "disponibilite": "Indisponible"
+    },
+    {
+      "nom": "Mourad",
+      "role": "Deveeloeppeperu",
+      "id": 6
+    }
+  ],
+  "materielles": [
+    {
+      "id": 1,
+      "nom": "Laptop",
+      "description": "Infrastructure réseau",
+      "disponibilite": "Disponible"
+    },
+    {
+      "id": 2,
+      "nom": "Serveur DHCP",
+      "description": "Infrastructure réseau",
+      "disponibilite": "Disponible"
+    },
+    {
+      "id": 3,
+      "nom": "Projecteur",
+      "description": "matériel audiovisuel",
+      "disponibilite": "Disponible"
+    },
+    {
+      "id": 4,
+      "nom": "Bureaux",
+      "description": "Mobiliers de bureau",
+      "disponibilite": "Disponible"
+    },
+    {
+      "id": 5,
+      "nom": "Adobe",
+      "description": "Logiciels",
+      "disponibilite": "Indisponible"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

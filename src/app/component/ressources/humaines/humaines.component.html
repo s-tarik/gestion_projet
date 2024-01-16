@@ -1,0 +1,82 @@
+<div class="page-content">
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-2">Ressources</div>
+      <div class="ps-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0 p-0">
+            <li class="breadcrumb-item">
+              <a>
+                <i class="bx bx-home-alt"></i>
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Humaines
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <button class="btn btn-outline-primary" (click)="onClickForm()"> 
+          <i class="fas fa-regular fa-plus"></i>
+          Ajouter ressource
+        </button>
+    </div>
+    <br>
+    
+    <form class="container d-flex justify-content-center" [formGroup]="myForm3" (ngSubmit)="addHumain()"  *ngIf="showAddForm">
+    <div class="col-md-10">
+        <div class="card p-4">
+    
+            <div class="mb-3">
+                <label class="form-label">Nom Complet</label>
+                <input type="text" name="nom" class="form-control" placeholder="Nom Complet" formControlName="nom">
+            </div>
+              <div class="mb-3">
+                <label class="form-label">fonctionnalité</label>
+                <input type="text" class="form-control" name="role" placeholder="fonctionnalité" formControlName="role">
+               
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-primary px-3" type="submit">
+                  <i class="fas fa-save"></i>
+                  Enregistrer 
+                </button>
+              </div>
+        </div>
+    </div>
+  </form>
+
+    <form class="container d-flex justify-content-center" [formGroup]="myForm4" (ngSubmit)="onFormSubmit()" *ngIf="showUpdateForm">
+        <div class="col-md-10">
+          <div class="card p-4">
+      
+            <!-- Display details of the selected project for editing -->
+            
+            <div *ngIf="selectedHumain">
+              {{this.selectedHumain.nom}}
+            <br>
+              <div class="mb-3">
+                <label class="form-label">Nom complet</label>
+                <input type="text" name="nom" class="form-control" placeholder="Nom complet" formControlName="nom" [value]="selectedHumain.nom">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Fonctionnalité</label>
+                <input type="text" name="fonctionnalité" class="form-control" rows="3" placeholder="Fonctionnalité" formControlName="role" [value]="selectedHumain.role">
+              </div>
+
+              <div class="mb-3">
+                <button class="btn btn-primary px-3" type="submit">
+                  <i class="fas fa-save"></i>
+                  Modifier 
+                </button>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      </form>
+    
+    <app-list-humains (onEdit) = "onEditHumain($event)"></app-list-humains>
+</div>

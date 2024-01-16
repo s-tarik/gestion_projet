@@ -1,38 +1,123 @@
-
+<!-- <h1>Projets</h1>
 <div class="d-flex flex-row-reverse bd-highlight">
+  <button class="btn btn-outline-primary" (click)="onClickForm()"> 
+    <i class="fas fa-regular fa-plus"></i>
+    Ajouter projet
+  </button>
+</div>
+<br>
+<form class="container d-flex justify-content-center" [formGroup]="myForm" (ngSubmit)="addProject()" *ngIf="showAddForm">
+<div class="col-md-10">
+  <div class="card p-4">
+      <div class="mb-3">
+          <label class="form-label">Titre de projet</label>
+          <input type="text" name="nom" class="form-control" placeholder="Titre de projet" formControlName = "nom">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" name="description" class="form-control" rows="3" placeholder="Description du projet" formControlName = "description">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date début</label>
+          <input type="date" name="dateDebut" class="form-control" formControlName = "dateDebut">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date fin</label>
+          <input type="date" name="dateFin" class="form-control" formControlName ="dateFin">
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary px-3" type="submit">
+            <i class="fas fa-save"></i>
+            Enregistrer 
+          </button>
+        </div>
+  </div>
+</div>
+</form> -->
+
+<!-- <div class="d-flex flex-row-reverse bd-highlight">
     <button class="btn btn-outline-primary" (click)="onClickForm()"> 
-        <i class="bi bi-plus"> Ajouter </i>
+      <i class="fas fa-regular fa-plus"></i>
+      Ajouter projet
     </button>
 </div>
+<br> -->
 
-<div class="row justify-content-end mt-3"  *ngIf="showForm">
-<div class="col-md-10">
+<!-- <form class="container d-flex justify-content-center" [formGroup]="myForm" (ngSubmit)="onFormSubmit()" *ngIf="showUpdateForm">
+  <div class="col-md-10">
     <div class="card p-4">
+      
+      <div *ngIf="selectedProject">
+        {{this.selectedProject.nom}}
+        <br>
+        <div class="mb-3">
+          <label class="form-label">Titre de projet</label>
+          <input type="text" name="nom" class="form-control" placeholder="Titre de projet" formControlName="nom" [value]="selectedProject.nom">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" name="description" class="form-control" rows="3" placeholder="Description du projet" formControlName="description" [value]="selectedProject.description">
+        </div>
 
         <div class="mb-3">
-            <label class="form-label">Titre de projet</label>
-            <input type="email" class="form-control" placeholder="Titre de projet" [(ngModel)]="project.nom">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Description</label>
-            <textarea class="form-control" rows="3" placeholder="Description du projet" [(ngModel)]="project.description"></textarea>
-          </div>
+          <label class="form-label">Date début</label>
+          <input type="date" name="dateDebut" class="form-control" formControlName="dateDebut" [value]="selectedProject.dateDebut">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date fin</label>
+          <input type="date" name="dateFin" class="form-control" formControlName="dateFin" [value]="selectedProject.dateFin">
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label">Date début</label>
-            <input type="date" class="form-control" [(ngModel)]="project.dateDebut">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Date fin</label>
-            <input type="date" class="form-control" [(ngModel)]="project.dateFin">
-          </div>
+        <div class="mb-3">
+          <button class="btn btn-primary px-3" type="submit" (click)="updateProject(project)">
+            <i class="fas fa-save"></i>
+            Modifier 
+          </button>
+        </div>
+      </div>
 
-          <div class="mb-3">
-            <button class="btn btn-primary px-3" (click)="addProjects()">
-                <i class="bi bi-floppy"> Enregistrer </i>
-            </button>
-          </div>
     </div>
+  </div>
+</form>
+<br>
+<app-projects-list (onEdit)="onEditProject($event)"></app-projects-list> -->
+
+<div class="d-flex flex-row-reverse bd-highlight">
+  <button class="btn btn-outline-primary" (click)="onClickForm()"> 
+      <i class="fas fa-solid fa-plus"> {{label}} un projet </i>
+  </button>
+</div>
+
+<div class="row justify-content-end mt-3" *ngIf="showAddForm">
+<div class="col-md-10">
+  <div class="card p-4">
+
+    <div class="mb-3">
+      <label class="form-label">Titre de projet</label>
+      <input type="text" name="nom" class="form-control" placeholder="Titre de projet" [(ngModel)]="project.nom">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input type="text" name="description" class="form-control" rows="3" placeholder="Description du projet" [(ngModel)]="project.description">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Date début</label>
+      <input type="date" name="dateDebut" class="form-control" [(ngModel)]="project.dateDebut">
+      {{ project.dateDebut }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Date fin</label>
+      <input type="date" name="dateFin" class="form-control" [(ngModel)]="project.dateFin">
+      {{ project.dateFin }}
+    </div>
+
+        <div class="mb-3">
+          <button class="btn btn-primary px-3" (click)="addProject()">
+              <i class="fas fa-save"> Enregistrer </i>
+          </button>
+        </div>
+  </div>
 </div>
 </div>
 <br>

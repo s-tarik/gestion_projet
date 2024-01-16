@@ -1,24 +1,158 @@
-<button class="add" mat-fab extended color="success" (click)="onClickForm()">
-    <mat-icon>add</mat-icon>
-    Ajouter une tâche
-</button>
+<div class="page-content">
+  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-2">Projets</div>
+    <div class="ps-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 p-0">
+          <li class="breadcrumb-item">
+            <a>
+              <i class="bx bx-home-alt"></i>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Tâche
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="d-flex flex-row-reverse bd-highlight">
+    <button class="btn btn-outline-primary" (click)="onClickForm()"> 
+        <i class="fas fa-solid fa-plus"> {{label}} une tâche </i>
+    </button>
+  </div>
 <br/>
 
-<mat-card   *ngIf="showForm">
-<form #postForm="ngForm">
-    <mat-form-field>
-        <mat-label>Insérez la tâche ici</mat-label>
-        <input name="Nom" type="text" matInput [(ngModel)]="tache.nom">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Description de tche</mat-label>
-        <textarea name="Description" rows="10" matInput [(ngModel)]="tache.description">
-        </textarea>
-    </mat-form-field>
-    <button mat-fab extended color="accent" (click)="createTache()">
-        <mat-icon>save</mat-icon>
-        Sauvegarder
+<div class="row justify-content-end mt-3" *ngIf="showAddForm">
+  <div class="col-md-10">
+    <div class="card p-4">
+  <div class="mb-3">
+    <label class="form-label">Titre de tâche</label>
+    <input type="text" name="nom" class="form-control" placeholder="Titre de tâche" [(ngModel)]="tache.nom">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <input type="text" name="description" class="form-control" rows="3" placeholder="Description de tâche" [(ngModel)]="tache.description">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Responsable</label>
+    <input type="text" name="responsable" placeholder="Respondable" class="form-control" rows="3" [(ngModel)]="tache.responsable">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Etat</label>
+    <input type="text" name="Etat" placeholder="Etat" class="form-control" rows="3" [(ngModel)]="tache.etat">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date début</label>
+    <input type="date" name="dateDebut" class="form-control" [(ngModel)]="tache.dateDebut">
+    {{ tache.dateDebut }}
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date fin</label>
+    <input type="date" name="dateFin" class="form-control" [(ngModel)]="tache.dateFin">
+    {{ tache.dateFin }}
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary px-3" (click)="saveTache()">
+        <i class="fas fa-save"> Enregistrer </i>
     </button>
-</form>
-</mat-card>
+  </div>
+    </div>
+    </div>
+  </div>
+</div>
 <app-list-tache></app-list-tache>
+
+
+
+
+<!-- <div class="container d-flex justify-content-center" [formGroup]="myForm1" (ngSubmit)="addTache()"  *ngIf="showAddForm">
+<div class="col-md-10">
+    <div class="card p-4">
+
+        <div class="mb-3">
+            <label class="form-label">Titre de tâche</label>
+            <input type="text" name="nom" class="form-control" placeholder="Titre de tâche" formControlName="nom">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input type="text" name="description" class="form-control" rows="3" placeholder="Description de tâche" formControlName = "description">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Respondable</label>
+            <input type="text" name="responsable" class="form-control" rows="3" placeholder="Responsable" formControlName = "responsable">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Date début</label>
+            <input type="date" name="dateDebut" class="form-control" formControlName = "dateDebut">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Date fin</label>
+            <input type="date" name="dateFin" class="form-control" formControlName ="dateFin">
+          </div>
+
+          <div class="mb-3">
+            <button class="btn btn-primary px-3" type="submit">
+              <i class="fas fa-save"></i>
+              Enregistrer 
+            </button>
+          </div>
+    </div>
+</div>
+</div>
+</div>
+
+<form class="container d-flex justify-content-center" [formGroup]="myForm1" (ngSubmit)="onFormSubmit()" *ngIf="showUpdateForm">
+  <div class="col-md-10">
+    <div class="card p-4">
+
+      
+      <div *ngIf="selectedTache">
+        {{this.selectedTache.nom}}
+      <br>
+        <div class="mb-3">
+          <label class="form-label">Titre de projet</label>
+          <input type="text" name="nom" class="form-control" placeholder="Titre de projet" formControlName="nom" [value]="selectedTache.nom">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" name="description" class="form-control" rows="3" placeholder="Description du projet" formControlName="description" [value]="selectedTache.description">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" name="description" class="form-control" rows="3" placeholder="Description du projet" formControlName="responsable" [value]="selectedTache.responsable">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Date début</label>
+          <input type="date" name="dateDebut" class="form-control" formControlName="dateDebut" [value]="selectedTache.dateDebut">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date fin</label>
+          <input type="date" name="dateFin" class="form-control" formControlName="dateFin" [value]="selectedTache.dateFin">
+        </div>
+
+        <div class="mb-3">
+          <button class="btn btn-primary px-3" type="submit" (click)="updateTache(tache)">
+            <i class="fas fa-save"></i>
+            Modifier 
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+<br>
+<br>
+<app-list-tache (onEdit) = "onEditTache($event)"></app-list-tache> -->

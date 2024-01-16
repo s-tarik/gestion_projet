@@ -1,24 +1,98 @@
+<div class="page-content">
+  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-2">Projets</div>
+    <div class="ps-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 p-0">
+          <li class="breadcrumb-item">
+            <a>
+              <i class="bx bx-home-alt"></i>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Ressource
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
 
-<button class="add" mat-fab extended color="success"> 
-    <mat-icon>add</mat-icon>
-    Ajouter
-</button>
+  <div class="d-flex flex-row-reverse bd-highlight">
+    <button class="btn btn-outline-primary" (click)="onClickForm()"> 
+        <i class="fas fa-solid fa-plus"> {{label}} une ressource </i>
+    </button>
+  </div>
 <br/>
-<div class="container">
-    <form>
-        <div class="mb-3">
-            <label for="champ1" class="form-label">Champ 1</label>
-            <input type="text" class="form-control" id="champ1" placeholder="Entrez le champ 1">
-        </div>
-        <div class="mb-3">
-            <label for="champ2" class="form-label">Champ 2</label>
-            <input type="text" class="form-control" id="champ2" placeholder="Entrez le champ 2">
-        </div>
-        <button mat-fab extended color="accent">
-            <mat-icon>save</mat-icon>
-            Sauvegarder
-        </button>
 
-    </form>
+
+<div class="container d-flex justify-content-center" *ngIf="showAddForm">
+<div class="col-md-10">
+    <div class="card p-4">
+
+        <div class="mb-3">
+            <label class="form-label">Titre de ressource</label>
+            <input type="text" name="nom" class="form-control" placeholder="Titre de ressource" [(ngModel)]="ressource.nom">
+        </div>
+          <div class="mb-3">
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Type de ressource</label>
+            <select type="text" name="type" class="form-control" placeholder="Type de ressource" [(ngModel)]="ressource.type">
+                <option value="Ressources Humaines">Ressources Humaines</option>
+                <option value="Ressources Matérielles">Ressources Matérielles</option>
+                <option value="Ressources financières">Ressources financières</option>
+              </select>
+          </div>
+          
+
+          
+
+          <div class="mb-3">
+            <button class="btn btn-primary px-3" (click)="saveRessource()">
+              <i class="fas fa-save"></i>
+              Enregistrer 
+            </button>
+          </div>
+    </div>
 </div>
-     
+</div>
+<br>
+
+<!-- <form class="container d-flex justify-content-center" [formGroup]="myForm2" (ngSubmit)="onFormSubmit()" *ngIf="showUpdateForm">
+    <div class="col-md-10">
+      <div class="card p-4">
+  
+
+        
+        <div *ngIf="selectedRessource">
+          {{this.selectedRessource.nom}}
+        <br>
+          <div class="mb-3">
+            <label class="form-label">Titre de ressource</label>
+            <input type="text" name="nom" class="form-control" placeholder="Titre de ressource" formControlName="nom" [value]="selectedRessource.nom">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Type de ressource</label>
+            <select type="text" name="type" class="form-control"  id="inlineFormCustomSelectPref" formControlName = "type" [value]="selectedRessource.type">
+                <option value="1">Ressources Humaines</option>
+                <option value="2">Matériels</option>
+                <option value="3">Ressources financières</option>
+              </select>
+          </div>
+
+          <div class="mb-3">
+            <button class="btn btn-primary px-3">
+              <i class="fas fa-save"></i>
+              Modifier 
+            </button>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </form>
+  <br> -->
+  <br>
+<app-list-ressources></app-list-ressources>
+
+
+
+

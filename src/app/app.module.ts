@@ -17,21 +17,31 @@ import { SidenavComponent } from './component/sidenav/sidenav.component';
 import { HomeComponent } from './component/home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SettingsComponent } from './component/settings/settings.component';
-import { MediaComponent } from './component/media/media.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './component/header/header.component';
-
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { AfficherProjetComponent } from './component/afficher-projet/afficher-projet.component';
 import { ListTacheComponent } from './component/afficher-projet/list-tache/list-tache.component';
 import { LoginComponent } from './component/login/login.component';
-import { UpdateTacheComponent } from './component/update-tache/update-tache.component';
 import { RessourcesComponent } from './component/ressources/ressources.component';
 import { CommencerComponent } from './component/commencer/commencer.component';
+import { RegisterComponent } from './component/register/register.component';
+import { FrogotPasswordComponent } from './component/frogot-password/frogot-password.component';
+import { ToDoComponent } from './component/to-do/to-do.component';
+import { PlanificationComponent } from './component/planification/planification.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { ContactComponent } from './component/contact/contact.component';
+import { ProfilUtilisateurComponent } from './component/profil-utilisateur/profil-utilisateur.component';
+import { HumainesComponent } from './component/ressources/humaines/humaines.component';
+import { MateriellesComponent } from './component/ressources/materielles/materielles.component';
+import { FinancieresComponent } from './component/ressources/financieres/financieres.component';
+import { ListRessourcesComponent } from './component/ressources/list-ressources/list-ressources.component';
+import { ListHumainsComponent } from './component/ressources/humaines/list-humains/list-humains.component';
+import { MaterielleListComponent } from './component/ressources/materielles/materielle-list/materielle-list.component';
 
 
 @NgModule({
@@ -43,15 +53,24 @@ import { CommencerComponent } from './component/commencer/commencer.component';
     LoginComponent,
     ProjectsComponent,
     SettingsComponent,
-    MediaComponent,
     DashboardComponent,
     ProjectsListComponent,
-    HeaderComponent,
     AfficherProjetComponent,
     ListTacheComponent,
-    UpdateTacheComponent,
     RessourcesComponent,
-    CommencerComponent
+    CommencerComponent,
+    RegisterComponent,
+    FrogotPasswordComponent,
+    ToDoComponent,
+    PlanificationComponent,
+    ContactComponent,
+    ProfilUtilisateurComponent,
+    HumainesComponent,
+    MateriellesComponent,
+    FinancieresComponent,
+    ListRessourcesComponent,
+    ListHumainsComponent,
+    MaterielleListComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +88,10 @@ import { CommencerComponent } from './component/commencer/commencer.component';
     MatSidenavModule,
     FormsModule,
     OverlayModule,
-    CdkMenuModule
+    CdkMenuModule,
+    FontAwesomeModule,
+    FullCalendarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
